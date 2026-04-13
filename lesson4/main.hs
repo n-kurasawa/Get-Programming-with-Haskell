@@ -1,3 +1,5 @@
+import Data.List
+
 ifEven myFunction x =
   if even x
     then myFunction x
@@ -14,3 +16,16 @@ ifEvenInc n = ifEven inc n
 ifEvenDoubl n = ifEven double n
 
 ifEvenSquiare n = ifEven square n
+
+names = [("Ian", "Curtis"), ("Bernard", "Sumner"), ("Peter", "Hook"), ("Stephen", "Morris")]
+
+compareLastNames name1 name2 =
+  if lastName1 > lastName2
+    then GT
+    else
+      if lastName1 < lastName2
+        then LT
+        else EQ
+  where
+    lastName1 = snd name1
+    lastName2 = snd name2
