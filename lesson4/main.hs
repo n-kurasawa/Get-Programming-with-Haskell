@@ -29,3 +29,7 @@ compareLastNames name1 name2 =
   where
     lastName1 = snd name1
     lastName2 = snd name2
+
+addressLetter name location = nameText ++ " - " ++ location
+  where
+    nameText = (fst name) ++ " " ++ (snd name)
