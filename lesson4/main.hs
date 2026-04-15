@@ -33,3 +33,19 @@ compareLastNames name1 name2 =
 addressLetter name location = nameText ++ " - " ++ location
   where
     nameText = (fst name) ++ " " ++ (snd name)
+
+sfOffice name =
+  if lastName < "L"
+    then nameText ++ "- PO Box 1234 - San Francisco, CA, 94111"
+    else nameText ++ "- PO Box 1010 - San Francisco, CA, 94111"
+  where
+    lastName = snd name
+    nameText = (fst name) ++ " " ++ lastName
+
+nyOffice name = nameText ++ ": PO Box 789"
+  where
+    nameText = (fst name) ++ " " ++ (snd name)
+
+renoOffice name = nameText ++ "- PO Box 456"
+  where
+    nameText = (fst name) ++ " " ++ (snd name)
