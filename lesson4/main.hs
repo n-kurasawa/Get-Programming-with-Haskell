@@ -20,19 +20,14 @@ ifEvenSquiare n = ifEven square n
 names = [("Ian", "Curtis"), ("Bernard", "Sumner"), ("Peter", "Hook"), ("Stephen", "Morris")]
 
 compareLastNames name1 name2 =
-  if lastName1 > lastName2
-    then GT
-    else
-      if lastName1 < lastName2
-        then LT
-        else EQ
+  lastName1 `compare` lastName2
   where
     lastName1 = snd name1
     lastName2 = snd name2
 
-addressLetter name location = nameText ++ " - " ++ location
+addressLetter name location = locationFunction name
   where
-    nameText = (fst name) ++ " " ++ (snd name)
+    locationFunction = getLocationFunction location
 
 sfOffice name =
   if lastName < "L"
@@ -49,3 +44,15 @@ nyOffice name = nameText ++ ": PO Box 789"
 renoOffice name = nameText ++ "- PO Box 456"
   where
     nameText = (fst name) ++ " " ++ (snd name)
+
+waOffice name = nameText ++ "- PO Box 1234"
+  where
+    nameText = (fst name) ++ " " ++ (snd name) ++ " Esq"
+
+getLocationFunction location =
+  case location of
+    "ny" -> nyOffice
+    "sf" -> sfOffice
+    "reno" -> renoOffice
+    "wa" -> waOffice
+    _ -> (\name -> (fst name) ++ " " ++ (snd name))
