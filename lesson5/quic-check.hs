@@ -4,3 +4,5 @@ ifEven f x =
     else x
 
 genIfXEven x = (\f -> ifEven f x)
+
+subtract2 = flip (-) 2

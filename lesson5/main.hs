@@ -10,3 +10,5 @@ exampleUrlBuilder = getRequestUrl "http://example.com"
 myExampleUrlBuilder = exampleUrlBuilder "1237abc"
 
 add4 a b c d = a + b + c + d
+
+flipBinaryArgs binaryFinction = \x y -> binaryFinction y x
