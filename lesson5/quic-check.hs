@@ -6,3 +6,6 @@ ifEven f x =
 genIfXEven x = (\f -> ifEven f x)
 
 subtract2 = flip (-) 2
+
+binaryPartialApplication :: (a -> b -> c) -> a -> (b -> c)
+binaryPartialApplication f x = \y -> f x y
