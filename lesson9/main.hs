@@ -1,3 +1,5 @@
+import Data.Char (toLower)
+
 add3ToAll [] = []
 add3ToAll (x : xs) = (3 + x) : add3ToAll xs
 
@@ -32,3 +34,35 @@ remove test (x : xs) =
   if test x
     then remove test xs
     else x : remove test xs
+
+myProduct :: (Num a) => [a] -> a
+myProduct xs = foldl (*) 1 xs
+
+concatAll xs = foldl (++) "" xs
+
+sumOfSquares xs = foldl (+) 0 (map (^ 2) xs)
+
+rcons x y = y : x
+
+myReverse xs = foldl rcons [] xs
+
+myFoldl f init [] = init
+myFoldl f init (x : xs) = myFoldl f newInit xs
+  where
+    newInit = f init x
+
+myFoldr f init [] = init
+myFoldr f init (x : xs) = f x rightResult
+  where
+    rightResult = myFoldr f init xs
+
+myElem :: (Eq a) => a -> [a] -> Bool
+myElem v myList = length filterdList > 0
+  where
+    filterdList = filter (== v) myList
+
+isPalindrome :: String -> Bool
+isPalindrome text = processedText == reverse processedText
+  where
+    noSpaces = filter (/= ' ') text
+    processedText = map toLower noSpaces
