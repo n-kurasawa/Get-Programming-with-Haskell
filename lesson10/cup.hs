@@ -11,3 +11,5 @@ drink aCup ozDrank = if ozDiff >= 0
 　　　　　ozDiff = flOz - ozDrank
 
 isEmpty aCup = getOz aCup == 0
+
+afterManySips = foldl drink coffeCup [1,1,1,1,1]
