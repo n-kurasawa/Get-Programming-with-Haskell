@@ -9,3 +9,5 @@ drink aCup ozDrank = if ozDiff >= 0
   else cup 0
   where flOz = getOz aCup
 　　　　　ozDiff = flOz - ozDrank
+
+isEmpty aCup = getOz aCup == 0
