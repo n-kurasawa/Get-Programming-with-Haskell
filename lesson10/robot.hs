@@ -9,3 +9,5 @@ hp (_,_,h) = h
 getName aRobot = aRobot name
 getAttack aRobot = aRobot attack
 getHP aRobot = aRobot hp
+
+setName aRobot newName = aRobot (\(n,a,h) -> robot (newName,a,h))
