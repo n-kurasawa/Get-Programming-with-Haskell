@@ -11,3 +11,4 @@ getAttack aRobot = aRobot attack
 getHP aRobot = aRobot hp
 
 setName aRobot newName = aRobot (\(n,a,h) -> robot (newName,a,h))
+setAttack aRobot newAttack = sRobot (\(n,a,h) -> robot (a,newAttack,h))
