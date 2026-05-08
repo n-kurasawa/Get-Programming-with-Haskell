@@ -12,3 +12,4 @@ getHP aRobot = aRobot hp
 
 setName aRobot newName = aRobot (\(n,a,h) -> robot (newName,a,h))
 setAttack aRobot newAttack = aRobot (\(n,a,h) -> robot (a,newAttack,h))
+setHP aRobot newHP = aRobot (\(n,a,h) -> robot (n,a,newHP))
