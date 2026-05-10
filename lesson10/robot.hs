@@ -19,3 +19,7 @@ printRobot aRobot =
     n ++
     " attack:" ++ (show a) ++
     " hp:" ++ (show h))
+
+damage aRobot attackDamage = 
+  aRobot (\(n,a,h) ->
+    robot (n,a,h - attackDamage))
