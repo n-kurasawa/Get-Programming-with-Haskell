@@ -56,3 +56,7 @@ canDonateTo _ (BloodType AB _) = True
 canDonateTo (BloodType A _) (BloodType A _) = True
 canDonateTo (BloodType B _) (BloodType B _) = True
 canDonateTo _ _ = False
+
+type MiddleName = String
+
+data Name = Name FirstName LastName | NameWithMiddle FirstName MiddleName LastName
