@@ -60,3 +60,5 @@ canDonateTo _ _ = False
 type MiddleName = String
 
 data Name = Name FirstName LastName | NameWithMiddle FirstName MiddleName LastName
+
+data Patient = Patient Name Sex Int Int Int BloodType
