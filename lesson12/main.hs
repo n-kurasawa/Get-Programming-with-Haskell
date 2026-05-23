@@ -61,4 +61,37 @@ type MiddleName = String
 
 data Name = Name FirstName LastName | NameWithMiddle FirstName MiddleName LastName
 
-data Patient = Patient Name Sex Int Int Int BloodType
+-- data Patient = Patient Name Sex Int Int Int BloodType
+
+johnDoe :: Patient
+johnDoe = Patient (Name "John" "Dou") Male 30 74 200 (BloodType AB Pos)
+
+jane :: Patient
+jane = Patient (NameWithMiddle "Jane" "Elizabeth" "Smith") Female 30 74 200 (BloodType A Pos)
+
+data Patient = Patient
+  { name :: Name,
+    sex :: Sex,
+    age :: Int,
+    height :: Int,
+    weight :: Int,
+    bloodType :: BloodType
+  }
+
+jackieSmith :: Patient
+jackieSmith =
+  Patient
+    { name = Name "Jackie" "Smith",
+      age = 43,
+      sex = Female,
+      height = 62,
+      weight = 115,
+      bloodType = BloodType O Neg
+    }
+
+showName :: Patient -> String
+showName Patient {name = Name f l} = f ++ " " ++ l
+showName Patient {name = NameWithMiddle f m l} = f ++ " " ++ m ++ " " ++ l
+
+canDonateToPatient :: Patient -> Patient -> Bool
+canDonateToPatient p1 p2 = canDonateTo (bloodType p1) (bloodType p2)
