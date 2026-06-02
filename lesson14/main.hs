@@ -7,3 +7,15 @@ instance Show SixSidedDie where
   show S4 = "four"
   show S5 = "five"
   show S6 = "six"
+
+data Name = Name (String, String) deriving (Show, Eq)
+
+names :: [Name]
+names =
+  [ Name ("Emil", "Cioran"),
+    Name ("Eugene", "Thacker"),
+    Name ("Friedric", "Nietzsche")
+  ]
+
+instance Ord Name where
+  compare (Name (f1, l1)) (Name (f2, l2)) = compare (l1, f1) (l2, f2)
