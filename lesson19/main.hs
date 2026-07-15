@@ -2,6 +2,7 @@
 build-depends: base, containers
 -}
 
+import Data.List
 import Data.Map qualified as Map
 
 data Organ = Heart | Brain | Kidney | Spleen deriving (Show, Eq)
@@ -36,3 +37,24 @@ countOrgan organ avaiable =
         (\x -> x == Just organ)
         avaiable
     )
+
+isSomething :: Maybe Organ -> Bool
+isSomething Nothing = False
+isSomething (Just _) = True
+
+justThaOragans :: [Maybe Organ]
+justThaOragans = filter isSomething availableOrgans
+
+showOrgan :: Maybe Organ -> String
+showOrgan (Just organ) = show organ
+showOrgan Nothing = ""
+
+organList :: [String]
+organList = map showOrgan justThaOragans
+
+cleanList :: String
+cleanList = intercalate "," organList
+
+numOrZero :: Maybe Int -> Int
+numOrZero Nothing = 0
+numOrZero (Just num) = num
