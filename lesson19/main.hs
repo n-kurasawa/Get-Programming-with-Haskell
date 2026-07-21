@@ -83,3 +83,19 @@ process organ = placeInLocation (organToContainer organ)
 
 report :: (Location, Container) -> String
 report (location, container) = show container ++ " in the " ++ show location
+
+processRequest :: Int -> Map.Map Int Organ -> String
+processRequest id catalog = processAndReport organ
+  where
+    organ = Map.lookup id catalog
+
+processAndReport :: (Maybe Organ) -> String
+processAndReport (Just organ) = report (process organ)
+processAndReport Nothing = "error, id not found"
+
+emptyDrawers :: [Maybe Organ] -> Int
+emptyDrawers contents = (length . filter isNothing) contents
+
+maybeMap :: (a -> b) -> Maybe a -> Maybe b
+maybeMap f Nothing = Nothing
+maybeMap f (Just val) = Just (func val)
